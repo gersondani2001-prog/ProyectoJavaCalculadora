@@ -1,0 +1,108 @@
+/*Calculadora en Java*/
+
+
+/*
+
+	Codigo del programa de una calculadora en java netbeans
+	
+
+*/
+
+
+/*Declaracion de variables*/
+
+/*esto va antes de public proyecto*/
+
+public float primerNumero;
+public float segundoNumero;
+public String operador;
+
+
+/*esto va dentro de public proyecto*/
+
+this.setLocationRelativeTo(null);
+
+
+
+/*en cada boton va */
+
+this.casilla.setText(this.casilla.getText()+"numero");
+
+/*en el boton de cancel*/
+
+this.casilla.setText("");
+
+/*en el boton del punto*/
+
+if(!(this.casilla.getText().contains("."))){
+	this.casilla.setText(this.casilla.getText()+ ".");
+}
+
+
+/*en cada boton de operador*/
+
+this.primerNumero = Float.parseFloat(this.casilla.getText());
+this.operador = "/";
+this.casilla.setText("");
+
+
+/*en el igual*/
+
+this.segundoNumero = Float.parseFloat(this.casilla.getText());
+        
+switch(operador){
+	case "+":
+		this.casilla.setText(sincero(this.primerNumero + this.segundoNumero));
+		break;
+	case "-":
+		this.casilla.setText(sincero(this.primerNumero + this.segundoNumero));
+		break;
+	case "*":
+		this.casilla.setText(sincero(this.primerNumero + this.segundoNumero));
+		break;
+	case "/":
+		if(this.segundoNumero == 0){
+			this.casilla.setText("No Se Divide Entre Cero");
+		}
+		else{
+			this.casilla.setText(sincero(this.primerNumero + this.segundoNumero));
+		}           
+		break;
+}
+
+
+
+/*creando un public string despues de todos los botones*/
+
+public String sincero(float resultado){
+        
+	String retorno = "";
+        
+	retorno = Float.toString(resultado);
+        
+	if(resultado % 1 == 0){
+		retorno = retorno.substring(0, retorno.length()-2);
+	}
+        
+        
+	return retorno;
+        
+}
+    
+
+
+/*despues del public init components se pone esto*/
+
+this.setLocationRelativeTo(Calculadora.this);
+this.setTitle("Calculador");
+this.setResizable(false);
+        
+
+
+
+
+
+
+
+
+
